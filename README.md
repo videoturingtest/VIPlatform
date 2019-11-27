@@ -1,7 +1,28 @@
-# VTT_platform
+# VTTPlatform
 Welcome to the VTT platform. The VTT platform is run through a series of docker containers which
 operate in tandem to provide answers to questions related to popular drama's such as 'Friends'.
-The VTT platform is run through 8 different docker containers.
+
+
+## Container Setup
+In order to setup the docker images on your local machine, please run the following script with sudo user privileges.
+WARNING! This script may take 2-3 hours to run and requires 200Gb of free disk space.
+```console
+sh vtt_platform_setup.sh
+```
+
+To verify the script setup correctly run the:
+
+```console
+sudo docker images
+```
+and check that the 8 required containers have been installed correctly. Then, start up the docker containers to your desired 
+network configurations.
+
+## VTT Platform Usage
+
+The VTT platform is run through 8 different docker containers. The 'container_login.sh' script is should be contained in 
+the 'temp_images' directory you installed in the last step. This can be used to login to the required containers.
+
 ### Main
 The main docker container coordinates all tasks involved in responding to a VTT question. 
 This main process MUST be run before any of the other docker processes. In order to login to the main docker container, run:
