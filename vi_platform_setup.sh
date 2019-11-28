@@ -6,6 +6,10 @@ wget http://147.46.240.131/vtt_docker.tar.gz
 # Next unzip the files
 tar xf vtt_docker.tar.gz
 
+wget http://147.46.240.131/stt_2_latest.tar
+
+mv stt_2_latest.tar temp_images
+
 # Next load the 7 required docker repositories
 docker load < temp_images/kbqa0.3_latest.tar
 docker load < temp_images/level_classification_latest.tar
@@ -14,3 +18,4 @@ docker load < temp_images/pio_test2_latest.tar
 docker load < temp_images/snu_low_latest.tar
 docker load < temp_images/snu_vqa_latest.tar
 docker load < temp_images/yonsei_vtt_latest.tar
+docker load < temp_images/stt_2_latest.tar
