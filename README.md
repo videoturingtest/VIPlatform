@@ -13,10 +13,9 @@ sh vi_platform_setup.sh
 To verify the script setup correctly run the:
 
 ```console
-sudo docker images
+sudo docker ps
 ```
-and check that the 8 required containers have been installed correctly. Then, start up the docker containers to your desired 
-network configurations.
+and check that the 8 required containers have been installed and are running correctly
 
 ## VI Platform Usage
 

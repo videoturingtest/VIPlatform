@@ -1,21 +1,15 @@
 #! /bin/sh
 
-# First pull down the vtt_docker tar images
-wget http://147.46.240.131/vtt_docker.tar.gz
+# First pull down the vi_platfrom tar images
+wget http://147.46.240.131/vi_platform.tar.gz
 
 # Next unzip the files
-tar xf vtt_docker.tar.gz
+tar xf vi_platform.tar.gz
 
-wget http://147.46.240.131/stt_2_latest.tar
+# Then run the setup script to install and start all relevant docker containers
+cd ViPlatorm
+sudo sh vpp_commands.sh
+cd ..
 
-mv stt_2_latest.tar temp_images
-
-# Next load the 7 required docker repositories
-docker load < temp_images/kbqa0.3_latest.tar
-docker load < temp_images/level_classification_latest.tar
-docker load < temp_images/main_latest.tar
-docker load < temp_images/pio_test2_latest.tar
-docker load < temp_images/snu_low_latest.tar
-docker load < temp_images/snu_vqa_latest.tar
-docker load < temp_images/yonsei_vtt_latest.tar
-docker load < temp_images/stt_2_latest.tar
+# Now remove ViPlatform folder to free up memory space
+rm -rf ViPlatorm
