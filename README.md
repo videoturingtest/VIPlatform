@@ -6,6 +6,7 @@ operate in tandem to provide answers to questions related to popular drama's suc
 ## Container Setup
 In order to setup the docker images on your local machine, please run the following script with sudo user privileges.
 WARNING! This script may take 2-3 hours to run and requires 200Gb of free disk space.
+The url will be notified soon.
 ```console
 sh vi_platform_setup.sh
 ```
