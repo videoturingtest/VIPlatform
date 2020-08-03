@@ -1,26 +1,35 @@
 # VIPlatform
-Welcome to the VI platform. The VIPlatform is run through a series of docker containers which
+Welcome to the VI Platform. The VI Platform is run through a series of docker containers which
 operate in tandem to provide answers to questions related to popular drama's such as 'Friends'.
 
 
 ## Container Setup
-In order to setup the docker images on your local machine, please run the following script with sudo user privileges.
-WARNING! This script may take 2-3 hours to run and requires 200Gb of free disk space.
+In order to set up the foundation of the VIPlatform, first get the __ViPlatform.tar.gz__ file currently stored on the vic server. This 
+contains eight tar files which are exports of the docker images needed to run the Platform.
+
+When you have this file on your desired server, extract the tar.gz file and change into the correct directory.
 ```console
-sh vi_platform_setup.sh
+tar xf ViPlatform.tar.gz
+cd ViPlatform
 ```
 
-To verify the script setup correctly run the:
+In order to setup the docker images on your local machine, please run the following script with appropriate user privileges.
+WARNING! This script may take some time to run and requires 200Gb of free disk space.
+```console
+sh vpp_commands.sh
+```
+
+To verify the script setup correctly run:
 
 ```console
-sudo docker ps
+docker ps
 ```
 and check that the 8 required containers have been installed and are running correctly
 
 ## VI Platform Usage
 
-The VI platform is run through 8 different docker containers. The 'container_login.sh' script is should be contained in 
-the 'temp_images' directory you installed in the last step. This can be used to login to the required containers.
+The VI platform is run through 8 different docker containers. The 'container_login.sh' script should be contained in 
+the 'ViPlatform/' directory you setup in the last step. This can be used to login to the required containers.
 
 ### Main
 The main docker container coordinates all tasks involved in responding to a VI question. 
@@ -61,7 +70,7 @@ The Level-Classification docker container assigns a difficulty score to a given 
 Next, in order to start this docker container's process; run:
 ```console
 cd /home/VTT/Level_Classification
-python3 client.py  
+/opt/conda/bin/python3 client.py  
 ```
 ### KnowledgeBase
 The KnowledgeBase docker container provides an answer to a given VI question. In order to login to this docker container, run:
@@ -82,7 +91,7 @@ In order to login to this docker container, run:
 Next, in order to start this docker container's process; run:
 ```console
 cd /root
-python3 predict.py 
+python3 client.py 
 ```
 ### SNU_High
 The SNU_High docker container provides answers to VI questions which are classified with a high level of difficulty. 
@@ -104,5 +113,5 @@ In order to login to this docker container, run:
 Next, in order to start this docker container's process; run:
 ```console
 cd workspace/Answer_Selection
-python3 predict.py
+/opt/conda/bin/python3 predict.py
 ```
