@@ -1,11 +1,9 @@
 # VIPlatform
-Welcome to the VI Platform. The VI Platform is run through a series of docker containers which
-operate in tandem to provide answers to questions related to popular drama's such as 'Friends'.
-
+The VI Platform is a Video Intelligence Platform deployed through a series of Docker containers which
+operate in tandem to provide answers to questions about video clips from popular TV dramas such as 'Friends'.
 
 ## Container Setup
-In order to set up the foundation of the VIPlatform, first get the __ViPlatform.tar.gz__ file currently stored on the vic server. This 
-contains eight tar files which are exports of the docker images needed to run the Platform.
+To deploy the Video Intelligence Platform you first have to obtain a copy of the containers. The latest version can be found in the __ViPlatform.tar.gz__ file on the VIC server. This archive contains all eight tar files which are exports of the docker images needed to run the Platform.
 
 When you have this file on your desired server, extract the tar.gz file and change into the correct directory.
 ```console
@@ -14,7 +12,7 @@ cd ViPlatform
 ```
 
 In order to setup the docker images on your local machine, please run the following script with appropriate user privileges.
-WARNING! This script may take some time to run and requires 200Gb of free disk space.
+WARNING! This script may take some time to run and requires 200GB of free disk space.
 ```console
 sh vpp_commands.sh
 ```
@@ -24,16 +22,18 @@ To verify the script setup correctly run:
 ```console
 docker ps
 ```
-and check that the 8 required containers have been installed and are running correctly
+and check that the 8 required containers have been installed and are running correctly.
+
+If you would like to set up the 8 containers manually you can do so by loading their archives into docker individually. In order to load the container simply do e.g.
+```
+docker load -i main.tar
+```
 
 ## VI Platform Usage
-
-The VI platform is run through 8 different docker containers. The 'container_login.sh' script should be contained in 
-the 'ViPlatform/' directory you setup in the last step. This can be used to login to the required containers.
+The VI platform is run through 8 different docker containers. The 'container_login.sh' script should be contained in the 'ViPlatform/' directory you setup in the last step. This can be used to login to the required containers.
 
 ### Main
-The main docker container coordinates all tasks involved in responding to a VI question. 
-This main process MUST be run before any of the other docker processes. In order to login to the main docker container, run:
+The main docker container coordinates all tasks involved in responding to a VI question. This main process MUST be run before any of the other docker processes. In order to login to the main docker container, run:
 ```console
 ./container_login.sh main
 ```
